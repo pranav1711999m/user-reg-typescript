@@ -1,0 +1,32 @@
+<app-toast [message]="toast.message"></app-toast>
+
+<div class="card"style="margin-top:40px; padding:50px; background-color:#f31616;border-radius:15px;
+-webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);
+-moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);
+box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);">
+  <h4 class="card-header">Register</h4>
+  <div class="card-body">
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <div class="input-group" style="margin-bottom: 15px;" [ngClass]="setClassUsername()">
+       
+        <input class="form-control" type="text" name="username"
+               formControlName="username" placeholder="Username" autofocus>
+      </div>
+      <div class="input-group" style="margin-bottom: 15px;" [ngClass]="setClassEmail()">
+       
+        <input class="form-control" type="email" name="email"
+               formControlName="email" placeholder="Email">
+      </div>
+      <div class="input-group"  style="margin-bottom: 15px;"  [ngClass]="setClassPassword()">
+        
+        <input class="form-control" type="password" name="password"
+               formControlName="password" placeholder="Password">
+      </div>
+    
+      <button class="btn btn-primary" style="background-color: rgb(59, 59, 41) ;" type="submit" [disabled]="!registerForm.valid">
+         Register
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="moveToLogin()">LogIn</button>
+    </form>
+  </div>
+</div>
